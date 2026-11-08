@@ -1,0 +1,33 @@
+# Operating System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary Files
+*.tmp
+*.temp
+*.bak
+*.log
+
+# Backup Files
+*.backup
+*.old
+
+# Sensitive Information
+.env
+.env.*
+secrets.txt
+credentials.txt
+passwords.txt
+*.key
+*.pem
+
+# Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Python Cache
+__pycache__/
+*.pyc

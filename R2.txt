@@ -1,0 +1,48 @@
+R2 — CONFIGURATION REFERENCE
+
+Device Role:
+Simulated ISP Router
+
+
+INTERFACES
+
+GigabitEthernet0/0
+Description: Connection to R1
+IP Address: 10.0.0.2
+Subnet Mask: 255.255.255.252
+
+GigabitEthernet0/1
+Description: Connection to ISP Server
+IP Address: 198.51.100.1
+Subnet Mask: 255.255.255.0
+
+
+OSPF CONFIGURATION
+
+Process ID: 1
+Router ID: 2.2.2.2
+Area: 0
+
+Advertised Networks:
+10.0.0.0/30
+198.51.100.0/24
+
+Passive Interfaces:
+All interfaces except GigabitEthernet0/0
+
+
+ISP SERVER
+
+IP Address: 198.51.100.10
+Subnet Mask: 255.255.255.0
+Default Gateway: 198.51.100.1
+
+
+VERIFICATION COMMANDS
+
+show ip interface brief
+show ip ospf neighbor
+show ip route ospf
+
+ping 10.0.0.1
+ping 198.51.100.10

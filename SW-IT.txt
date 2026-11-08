@@ -1,0 +1,66 @@
+SW-IT — CONFIGURATION REFERENCE
+
+Device Role:
+Core Switch / IT Department Switch
+
+Switch Model:
+Cisco 2960
+
+
+VLAN CONFIGURATION
+
+VLAN 10
+Name: HR
+
+VLAN 20
+Name: IT
+
+VLAN 30
+Name: SALES
+
+VLAN 40
+Name: SERVERS
+
+
+ACCESS PORT CONFIGURATION
+
+FastEthernet0/1
+Connected Device: IT-PC1
+Mode: Access
+VLAN: 20
+
+FastEthernet0/2
+Connected Device: IT-PC2
+Mode: Access
+VLAN: 20
+
+FastEthernet0/3
+Connected Device: SRV1
+Mode: Access
+VLAN: 40
+
+
+TRUNK CONFIGURATION
+
+GigabitEthernet0/1
+Connected Device: R1
+Mode: Trunk
+Allowed VLANs: 10,20,30,40
+
+GigabitEthernet0/2
+Connected Device: SW-HR
+Mode: Trunk
+Allowed VLANs: 10
+
+FastEthernet0/24
+Connected Device: SW-SALES
+Mode: Trunk
+Allowed VLANs: 30
+
+
+VERIFICATION COMMANDS
+
+show vlan brief
+show interfaces trunk
+show mac address-table
+show interfaces status

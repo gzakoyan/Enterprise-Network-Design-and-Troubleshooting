@@ -1,0 +1,41 @@
+SW-HR — CONFIGURATION REFERENCE
+
+Device Role:
+Human Resources Department Switch
+
+Switch Model:
+Cisco 2960
+
+
+VLAN CONFIGURATION
+
+VLAN 10
+Name: HR
+
+
+ACCESS PORTS
+
+FastEthernet0/1
+Connected Device: HR-PC1
+Mode: Access
+VLAN: 10
+
+FastEthernet0/2
+Connected Device: HR-PC2
+Mode: Access
+VLAN: 10
+
+
+TRUNK PORT
+
+GigabitEthernet0/1
+Connected Device: SW-IT
+Mode: Trunk
+Allowed VLANs: 10
+
+
+VERIFICATION COMMANDS
+
+show vlan brief
+show interfaces trunk
+show mac address-table

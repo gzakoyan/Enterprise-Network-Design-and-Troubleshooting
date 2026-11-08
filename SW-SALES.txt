@@ -1,0 +1,41 @@
+SW-SALES — CONFIGURATION REFERENCE
+
+Device Role:
+Sales Department Switch
+
+Switch Model:
+Cisco 2960
+
+
+VLAN CONFIGURATION
+
+VLAN 30
+Name: SALES
+
+
+ACCESS PORTS
+
+FastEthernet0/1
+Connected Device: SALES-PC1
+Mode: Access
+VLAN: 30
+
+FastEthernet0/2
+Connected Device: SALES-PC2
+Mode: Access
+VLAN: 30
+
+
+TRUNK PORT
+
+GigabitEthernet0/1
+Connected Device: SW-IT
+Mode: Trunk
+Allowed VLANs: 30
+
+
+VERIFICATION COMMANDS
+
+show vlan brief
+show interfaces trunk
+show mac address-table

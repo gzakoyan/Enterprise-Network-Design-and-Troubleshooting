@@ -1,0 +1,111 @@
+R1 — CONFIGURATION REFERENCE
+
+Device Role:
+Company Edge Router
+
+INTERFACES
+
+G0/0.10
+VLAN: 10
+IP Address: 192.168.10.1/24
+NAT: Inside
+ACL: HR_SECURITY (Inbound)
+
+G0/0.20
+VLAN: 20
+IP Address: 192.168.20.1/24
+NAT: Inside
+
+G0/0.30
+VLAN: 30
+IP Address: 192.168.30.1/24
+NAT: Inside
+ACL: SALES_SECURITY (Inbound)
+
+G0/0.40
+VLAN: 40
+IP Address: 192.168.40.1/24
+NAT: Inside
+
+G0/1
+Description: Connection to R2
+IP Address: 10.0.0.1/30
+NAT: Outside
+
+
+DHCP CONFIGURATION
+
+HR_POOL
+Network: 192.168.10.0/24
+Gateway: 192.168.10.1
+
+IT_POOL
+Network: 192.168.20.0/24
+Gateway: 192.168.20.1
+
+SALES_POOL
+Network: 192.168.30.0/24
+Gateway: 192.168.30.1
+
+SERVER_POOL
+Network: 192.168.40.0/24
+Gateway: 192.168.40.1
+
+
+OSPF CONFIGURATION
+
+Process ID: 1
+Router ID: 1.1.1.1
+Area: 0
+
+Advertised Networks:
+10.0.0.0/30
+192.168.10.0/24
+192.168.20.0/24
+192.168.30.0/24
+192.168.40.0/24
+
+Passive Interfaces:
+All interfaces except G0/1
+
+
+NAT/PAT CONFIGURATION
+
+Inside Networks:
+192.168.10.0/24
+192.168.20.0/24
+192.168.30.0/24
+192.168.40.0/24
+
+Outside Interface:
+GigabitEthernet0/1
+
+Translation:
+PAT Overload
+
+
+SECURITY
+
+HR_SECURITY:
+Deny HR to IT
+Permit other IP traffic
+
+SALES_SECURITY:
+Permit HTTP to 192.168.40.10
+Deny other traffic to 192.168.40.10
+Permit other IP traffic
+
+SSH_MANAGEMENT:
+Permit SSH management from 192.168.20.0/24
+Deny other source networks
+
+
+VERIFICATION COMMANDS
+
+show ip interface brief
+show ip route
+show ip ospf neighbor
+show ip dhcp binding
+show ip nat translations
+show ip nat statistics
+show ip access-lists
